@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitchen Quiz</title>
+  <style>
+    body { font-family: Arial, padding: 20px; max-width: 600px; margin: auto; background: #f9f9f9; }
+    h1 { color: #333; }
+    .question { margin-bottom: 25px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.05); }
+    label { display: block; margin: 5px 0; }
+    #result { margin-top: 20px; font-weight: bold; color: green; }
+    button { padding: 10px 15px; font-size: 16px; border: none; background: #007bff; color: white; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+
+  <h1>Training: Kitchen Materials</h1>
+  <label>Your Name:<br>
+    <input type="text" id="name" placeholder="Enter your name" style="width:100%; padding:5px;">
+  </label><br>
+
+  <div class="question">
+    <p><strong>1. What is a benefit of quartz countertops?</strong></p>
+    <label><input type="radio" name="q1" value="Low maintenance"> Low maintenance</label>
+    <label><input type="radio" name="q1" value="Fragile"> Fragile</label>
+    <label><input type="radio" name="q1" value="Expensive"> Expensive</label>
+  </div>
+
+  <div class="question">
+    <p><strong>2. What is typically used under kitchen flooring for support?</strong></p>
+    <label><input type="radio" name="q2" value="Subfloor"> Subfloor</label>
+    <label><input type="radio" name="q2" value="Countertop"> Countertop</label>
+    <label><input type="radio" name="q2" value="Cabinet Base"> Cabinet Base</label>
+  </div>
+
+  <div class="question">
+    <p><strong>3. Which material is water-resistant?</strong></p>
+    <label><input type="radio" name="q3" value="Vinyl"> Vinyl</label>
+    <label><input type="radio" name="q3" value="Carpet"> Carpet</label>
+    <label><input type="radio" name="q3" value="Hardwood"> Hardwood</label>
+  </div>
+
+  <button onclick="submitQuiz()">Submit Quiz</button>
+
+  <p id="result"></p>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzmTzd4UiPuosBiaMpsuoPVxdBy7jgBNHYieWoKw_fIjftgOZQLFwdratUDxIjz6Efo/exec';
+
+    function submitQuiz() {
+      const name = document.getElementById("name").value.trim();
+      if (!name) return alert("Please enter your name.");
+
+      const answers = [
+        document.querySelector('input[name="q1"]:checked')?.value || "No answer",
+        document.querySelector('input[name="q2"]:checked')?.value || "No answer",
+        document.querySelector('input[name="q3"]:checked')?.value || "No answer"
+      ];
+
+      let score = 0;
+      if (answers[0] === "Low maintenance") score++;
+      if (answers[1] === "Subfloor") score++;
+      if (answers[2] === "Vinyl") score++;
+
+      fetch(scriptURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, score, answers })
+      })
+      .then(res => res.text())
+      .then(msg => {
+        document.getElementById("result").innerText = `Submitted! You scored ${score}/3`;
+      })
+      .catch(err => {
+        console.error(err);
+        alert("There was an error submitting your quiz. Try again or contact support.");
+      });
+    }
+  </script>
+
+</body>
+</html>
