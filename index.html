@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kitchen Quiz</title>
+  <title>Training Quiz</title>
   <style>
-    body { font-family: Arial, padding: 20px; max-width: 600px; margin: auto; background: #f9f9f9; }
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; background: #f9f9f9; }
     h1 { color: #333; }
     .question { margin-bottom: 25px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.05); }
     label { display: block; margin: 5px 0; }
@@ -16,9 +16,9 @@
 <body>
 
   <h1>Training: Kitchen Materials</h1>
-  <label>Your Name:<br>
-    <input type="text" id="name" placeholder="Enter your name" style="width:100%; padding:5px;">
-  </label><br>
+
+  <label for="name">Your Name:</label><br>
+  <input type="text" id="name" placeholder="Enter your name" style="width: 100%; padding: 5px;"><br><br>
 
   <div class="question">
     <p><strong>1. What is a benefit of quartz countertops?</strong></p>
@@ -42,7 +42,6 @@
   </div>
 
   <button onclick="submitQuiz()">Submit Quiz</button>
-
   <p id="result"></p>
 
   <script>
