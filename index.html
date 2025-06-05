@@ -4,11 +4,36 @@
   <meta charset="UTF-8">
   <title>Quiz Submission (Fast & CORS-Free)</title>
   <style>
-    body { font-family: Arial; padding: 20px; max-width: 600px; margin: auto; background: #f4f4f4; }
-    .question { margin-bottom: 20px; padding: 15px; background: white; border-radius: 6px; box-shadow: 0 0 5px rgba(0,0,0,0.05); }
-    button { padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    button:hover { background: #0056b3; }
-    #result { margin-top: 20px; font-weight: bold; color: green; }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      background: #f4f4f4;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
   </style>
 </head>
 <body>
@@ -36,7 +61,7 @@
   <p id="result"></p>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzmTzd4UiPuosBiaMpsuoPVxdBy7jgBNHYieWoKw_fIjftgOZQLFwdratUDxIjz6Efo/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyLxw42HfEGx-6VLc1LCRuuwCKRIj6SdSTBsxtecgkCeyVDrjEWz1oFKwIdrQa5YG9iJA/exec";
 
     function submitQuiz() {
       const name = document.getElementById("name").value.trim();
@@ -52,7 +77,11 @@
       if (q1 === "Tallahassee") score++;
       if (q2 === "2-1/2 inch") score++;
 
-      const payload = JSON.stringify({ name, score, answers: [q1, q2] });
+      const payload = JSON.stringify({
+        name,
+        score,
+        answers: [q1, q2]
+      });
 
       fetch(scriptURL, {
         method: "POST",
