@@ -43,6 +43,11 @@
       const q1 = document.querySelector('input[name="q1"]:checked')?.value || "No answer";
       const q2 = document.querySelector('input[name="q2"]:checked')?.value || "No answer";
 
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+
       let score = 0;
       if (q1 === "Tallahassee") score++;
       if (q2 === "2-1/2 inch") score++;
@@ -60,5 +65,9 @@
       })
       .catch(err => {
         console.error("Error submitting quiz:", err);
-        alert("Submission failed. Please
-
+        alert("Submission failed. Please try again.");
+      });
+    }
+  </script>
+</body>
+</html>
