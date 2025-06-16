@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Training Module - Page 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1000px; /* reduced width */
+      margin: 50px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    h3 {
+      color: #007bff;
+      margin-top: 30px;
+    }
+    .row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .column-text {
+      flex: 1 1 55%; /* more space for text */
+      min-width: 320px;
+    }
+    .column-image {
+      flex: 1 1 40%; /* slightly reduced image width */
+      text-align: center;
+    }
+    .column-image img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .next-button {
+      display: block;
+      margin: 40px auto 0;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      width: fit-content;
+    }
+    .next-button:hover {
+      background: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="images/SW Logo.png" alt="Statewide Logo">
+    </div>
+
+    <h2>We also specialize in Commercial and Residential full-roof replacements</h2>
+
+    <div class="row">
+      <div class="column-text">
+        <h3>Roof Types We Install:</h3>
+        <ul>
+          <li><strong>3D Architectural Shingle</strong>
+            <ul>
+              <li>Most cost effective</li>
+              <li>Energy Efficient</li>
+              <li>Lasts 10–15 years</li>
+            </ul>
+          </li>
+          <li><strong>Clay/Concrete Tile</strong>
+            <ul>
+              <li>More expensive than Shingle</li>
+              <li>More energy efficient</li>
+              <li>Lasts 20–30 years</li>
+            </ul>
+          </li>
+          <li><strong>1.5” Standing Seam Metal</strong>
+            <ul>
+              <li>Most expensive Roof</li>
+              <li>Most energy efficient</li>
+              <li>Lasts 50+ years</li>
+            </ul>
+          </li>
+          <li><strong>Flat Roofs (Not Pictured)</strong>
+            <ul>
+              <li>3 Layer Roof</li>
+              <li>Water Resistant</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="column-image">
+        <img src="images/Page3_image1.jpg" alt="Various Roofing Projects">
+      </div>
+    </div>
+
+    <a class="next-button" href="Training_Module_Page4.html">Next →</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz - Page 1 (Questions 1–6)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+      background: #f4f4f4;
+    }
+    h2 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+    button {
+      padding: 12px 24px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto 0;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Training Quiz – Page 1 of 4</h2>
+
+  <div class="question">
+    <p>1. Who founded Statewide?</p>
+    <label><input type="radio" name="q1" value="John Dyda"> John Dyda</label><br>
+    <label><input type="radio" name="q1" value="Dominique"> Dominique</label><br>
+    <label><input type="radio" name="q1" value="Samer"> Samer</label><br>
+    <label><input type="radio" name="q1" value="Franklin"> Franklin</label>
+  </div>
+
+  <div class="question">
+    <p>2. In what year was Statewide founded?</p>
+    <label><input type="radio" name="q2" value="2010"> 2010</label><br>
+    <label><input type="radio" name="q2" value="2015"> 2015</label><br>
+    <label><input type="radio" name="q2" value="2020"> 2020</label><br>
+    <label><input type="radio" name="q2" value="2005"> 2005</label>
+  </div>
+
+  <div class="question">
+    <p>3. Which of the following do we <strong>not</strong> install?</p>
+    <label><input type="radio" name="q3" value="Impact Windows"> Impact Windows</label><br>
+    <label><input type="radio" name="q3" value="Doors"> Doors</label><br>
+    <label><input type="radio" name="q3" value="Garage Doors"> Garage Doors</label><br>
+    <label><input type="radio" name="q3" value="Roofing"> Roofing</label>
+  </div>
+
+  <div class="question">
+    <p>4. Which type of home do we <strong>not</strong> accept for installation?</p>
+    <label><input type="radio" name="q4" value="Single-family homes"> Single-family homes</label><br>
+    <label><input type="radio" name="q4" value="Townhomes"> Townhomes</label><br>
+    <label><input type="radio" name="q4" value="High-rise condos"> High-rise condos</label><br>
+    <label><input type="radio" name="q4" value="Owner-occupied homes"> Owner-occupied homes</label>
+  </div>
+
+  <div class="question">
+    <p>5. What is the most common type of residential roof in Florida?</p>
+    <label><input type="radio" name="q5" value="Shingle"> Shingle</label><br>
+    <label><input type="radio" name="q5" value="Tile"> Tile</label><br>
+    <label><input type="radio" name="q5" value="Metal"> Metal</label><br>
+    <label><input type="radio" name="q5" value="Flat"> Flat</label>
+  </div>
+
+  <div class="question">
+    <p>6. Which roof type is often seen on commercial buildings?</p>
+    <label><input type="radio" name="q6" value="Shingle"> Shingle</label><br>
+    <label><input type="radio" name="q6" value="Flat"> Flat</label><br>
+    <label><input type="radio" name="q6" value="Tile"> Tile</label><br>
+    <label><input type="radio" name="q6" value="Slate"> Slate</label>
+  </div>
+
+  <button onclick="saveAndContinue()">Next →</button>
+
+  <script>
+    function saveAndContinue() {
+      for (let i = 1; i <= 6; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        localStorage.setItem(`q${i}`, answer ? answer.value : "No answer");
+      }
+      window.location.href = "quiz_page2.html";
+    }
+  </script>
+
+</body>
+</html>

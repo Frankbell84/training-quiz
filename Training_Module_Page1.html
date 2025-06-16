@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Training Module - Page 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 850px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    h3 {
+      color: #007bff;
+      margin-top: 30px;
+    }
+    .content {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .flex-text {
+      flex: 1 1 300px;
+    }
+    .flex-image {
+      flex: 0 0 250px;
+    }
+    .flex-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .center-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 30px auto 10px;
+      border-radius: 8px;
+    }
+    .next-button {
+      display: block;
+      margin: 40px auto 0;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      width: fit-content;
+    }
+    .next-button:hover {
+      background: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .flex-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="images/SW Logo.png" alt="Statewide Logo">
+    </div>
+
+    <h2>About Statewide</h2>
+    <div class="content flex-row">
+      <div class="flex-text">
+        <p><strong>Founded in 2015 by John Dyda</strong>, Statewide has become a recognized leader in home improvement and hurricane protection. With over 20 years of experience, John built a team dedicated to quality workmanship and customer satisfaction.</p>
+
+        <h3>Leadership and Growth</h3>
+        <p>In 2024, Dominique joined Statewide Windows & Doors, helping shape business strategy, capital allocation, and liquidity management. His leadership focuses on optimizing workflows, ensuring regulatory compliance, and driving profitability.</p>
+
+        <p>The partnership between Dominique and John Dyda forms a strong foundation for Statewide’s continued growth and long-term success.</p>
+      </div>
+
+      <div class="flex-image">
+        <img src="images/John_1.jpg" alt="John Dyda on-site at an install" />
+      </div>
+    </div>
+
+    <img src="images/John_Dom1.png" alt="John and Dominique Together" class="center-image" />
+
+    <a class="next-button" href="Training_Module_Page2.html">Next →</a>
+  </div>
+</body>
+</html>

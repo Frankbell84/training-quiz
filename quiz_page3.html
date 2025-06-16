@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz - Page 3 (Questions 13–18)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+      background: #f4f4f4;
+    }
+    h2 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+    button {
+      padding: 12px 24px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto 0;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Training Quiz – Page 3 of 4</h2>
+
+  <div class="question">
+    <p>13. What is the average lifespan of a shingle roof in Florida?</p>
+    <label><input type="radio" name="q13" value="10–15 years"> 10–15 years</label><br>
+    <label><input type="radio" name="q13" value="15–20 years"> 15–20 years</label><br>
+    <label><input type="radio" name="q13" value="20–25 years"> 20–25 years</label><br>
+    <label><input type="radio" name="q13" value="25–30 years"> 25–30 years</label>
+  </div>
+
+  <div class="question">
+    <p>14. What is one of the main disadvantages of shingle roofs?</p>
+    <label><input type="radio" name="q14" value="High cost"> High cost</label><br>
+    <label><input type="radio" name="q14" value="Poor wind resistance"> Poor wind resistance</label><br>
+    <label><input type="radio" name="q14" value="Heavy weight"> Heavy weight</label><br>
+    <label><input type="radio" name="q14" value="Difficult to install"> Difficult to install</label>
+  </div>
+
+  <div class="question">
+    <p>15. What is a key advantage of tile roofs?</p>
+    <label><input type="radio" name="q15" value="They are inexpensive"> They are inexpensive</label><br>
+    <label><input type="radio" name="q15" value="They reflect sunlight"> They reflect sunlight</label><br>
+    <label><input type="radio" name="q15" value="They require no maintenance"> They require no maintenance</label><br>
+    <label><input type="radio" name="q15" value="They are lightweight"> They are lightweight</label>
+  </div>
+
+  <div class="question">
+    <p>16. Why are tile roofs considered durable?</p>
+    <label><input type="radio" name="q16" value="They are flexible"> They are flexible</label><br>
+    <label><input type="radio" name="q16" value="They resist UV damage and heavy winds"> They resist UV damage and heavy winds</label><br>
+    <label><input type="radio" name="q16" value="They can be glued in place"> They can be glued in place</label><br>
+    <label><input type="radio" name="q16" value="They are made from plastic composite"> They are made from plastic composite</label>
+  </div>
+
+  <div class="question">
+    <p>17. What is a common concern with metal roofs?</p>
+    <label><input type="radio" name="q17" value="Fire hazard"> Fire hazard</label><br>
+    <label><input type="radio" name="q17" value="Noise during rain"> Noise during rain</label><br>
+    <label><input type="radio" name="q17" value="High absorption of heat"> High absorption of heat</label><br>
+    <label><input type="radio" name="q17" value="Rust in all climates"> Rust in all climates</label>
+  </div>
+
+  <div class="question">
+    <p>18. What is a benefit of standing seam metal roofing?</p>
+    <label><input type="radio" name="q18" value="It's glued down"> It's glued down</label><br>
+    <label><input type="radio" name="q18" value="It has no visible fasteners"> It has no visible fasteners</label><br>
+    <label><input type="radio" name="q18" value="It requires no underlayment"> It requires no underlayment</label><br>
+    <label><input type="radio" name="q18" value="It can’t be walked on"> It can’t be walked on</label>
+  </div>
+
+  <button onclick="saveAndContinue()">Next →</button>
+
+  <script>
+    function saveAndContinue() {
+      for (let i = 13; i <= 18; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        localStorage.setItem(`q${i}`, answer ? answer.value : "No answer");
+      }
+      window.location.href = "quiz_page4.html";
+    }
+  </script>
+
+</body>
+</html>

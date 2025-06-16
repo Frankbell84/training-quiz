@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Training Module - Page 9</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo img {
+      max-width: 200px;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .column-text {
+      flex: 1 1 50%;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      min-width: 280px;
+    }
+    .column-image {
+      flex: 1 1 45%;
+      text-align: center;
+    }
+    .column-image img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .next-button {
+      display: block;
+      margin: 40px auto 0;
+      padding: 12px 24px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      width: fit-content;
+    }
+    .next-button:hover {
+      background: #0056b3;
+    }
+    a {
+      color: #007bff;
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .column-text, .column-image {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="images/SW Logo.png" alt="Statewide Logo">
+    </div>
+
+    <h2>Different Roofing Types</h2>
+
+    <div class="row">
+      <div class="column-text">
+        <p><strong>Qualifications:</strong> We only provide complete replacement of the roof. 
+        <a href="#">Home Owners</a> can usually change to another roofing type — except Flat roofs. 
+        For example, a homeowner with a shingle roof can upgrade to tile or metal.</p>
+
+        <ul>
+          <li><strong>Shingle</strong></li>
+          <li><strong>Tile</strong></li>
+          <li><strong>Metal</strong></li>
+          <li><strong>Flat</strong></li>
+        </ul>
+      </div>
+
+      <div class="column-image">
+        <img src="images/Page9_image1.jpg" alt="Anatomy of a Roof Diagram">
+      </div>
+    </div>
+
+    <a class="next-button" href="Training_Module_Page10.html">Next →</a>
+  </div>
+</body>
+</html>
