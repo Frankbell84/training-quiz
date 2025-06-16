@@ -1,102 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Quiz Submission (Fast & CORS-Free)</title>
+  <meta charset="UTF-8" />
+  <title>Training Module - Welcome</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-      background: #f4f4f4;
+      background: #f7f9fc;
+      margin: 0;
+      padding: 0;
     }
-    .question {
-      margin-bottom: 20px;
-      padding: 15px;
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
       background: white;
-      border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 40px;
     }
-    button {
-      padding: 10px 20px;
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+    }
+    .content {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .next-button {
+      display: block;
+      margin: 40px auto 0;
+      padding: 12px 24px;
+      font-size: 16px;
       background: #007bff;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      width: fit-content;
     }
-    button:hover {
+    .next-button:hover {
       background: #0056b3;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      color: green;
     }
   </style>
 </head>
 <body>
-
-  <h2>Quick Quiz</h2>
-
-  <label for="name">Your Name:</label><br>
-  <input type="text" id="name" placeholder="Enter name" style="width: 100%; padding: 5px;"><br><br>
-
-  <div class="question">
-    <p>1. What is the capital of Florida?</p>
-    <label><input type="radio" name="q1" value="Tallahassee"> Tallahassee</label><br>
-    <label><input type="radio" name="q1" value="Miami"> Miami</label><br>
-    <label><input type="radio" name="q1" value="Orlando"> Orlando</label>
+  <div class="container">
+    <div class="logo">
+      <img src="images/SW Logo.png" alt="Statewide Logo">
+    </div>
+    <h1>Welcome to the Team!</h1>
+    <div class="content">
+      <p>We’re excited to have you join our team at Statewide! This training module will walk you through the core concepts, responsibilities, and product knowledge you'll need to succeed as part of our growing company.</p>
+      <p>Let’s get started!</p>
+      <img src="images/Welcome_1.jpg" alt="Welcome to the Team" />
+    </div>
+    <a class="next-button" href="Training_Module_Page1.html">Next →</a>
   </div>
-
-  <div class="question">
-    <p>2. Which of the following is a metal stud size?</p>
-    <label><input type="radio" name="q2" value="2-1/2 inch"> 2-1/2 inch</label><br>
-    <label><input type="radio" name="q2" value="6-1/2 inch"> 6-1/2 inch</label><br>
-    <label><input type="radio" name="q2" value="3 inch"> 3 inch</label>
-  </div>
-
-  <button onclick="submitQuiz()">Submit Quiz</button>
-  <p id="result"></p>
-
-  <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyLxw42HfEGx-6VLc1LCRuuwCKRIj6SdSTBsxtecgkCeyVDrjEWz1oFKwIdrQa5YG9iJA/exec";
-
-    function submitQuiz() {
-      const name = document.getElementById("name").value.trim();
-      const q1 = document.querySelector('input[name="q1"]:checked')?.value || "No answer";
-      const q2 = document.querySelector('input[name="q2"]:checked')?.value || "No answer";
-
-      if (!name) {
-        alert("Please enter your name.");
-        return;
-      }
-
-      let score = 0;
-      if (q1 === "Tallahassee") score++;
-      if (q2 === "2-1/2 inch") score++;
-
-      const payload = JSON.stringify({
-        name,
-        score,
-        answers: [q1, q2]
-      });
-
-      fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" }, // avoids CORS preflight
-        body: payload
-      })
-      .then(res => res.text())
-      .then(text => {
-        document.getElementById("result").innerText = `Submitted! You scored ${score}/2.`;
-      })
-      .catch(err => {
-        console.error("Error submitting quiz:", err);
-        alert("Submission failed. Please try again.");
-      });
-    }
-  </script>
 </body>
 </html>
