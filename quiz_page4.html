@@ -1,174 +1,103 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Quiz - Page 4 (Submit)</title>
-<style>
+  <meta charset="UTF-8">
+  <title>Quiz – Page 4 of 4</title>
+  <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
       max-width: 700px;
-      margin: auto;
+      margin: 40px auto;
+      padding: 20px;
       background: #f4f4f4;
     }
-    h2 {
-      text-align: center;
-    }
     .question {
-      margin-bottom: 25px;
-      padding: 15px;
       background: #fff;
-      border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     button {
-      padding: 12px 24px;
-      background: #28a745;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007bff;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      display: block;
-      margin: 30px auto 0;
     }
     button:hover {
-      background: #1e7e34;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      text-align: center;
-      color: green;
-    }
-    input[type="text"] {
-      padding: 8px;
-      width: 100%;
-      margin-bottom: 20px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      background: #0056b3;
     }
   </style>
 </head>
 <body>
-<h2>Training Quiz – Final Page</h2>
-<label for="name">Your Name:</label>
-<input id="name" placeholder="Enter your name" type="text"/>
-<div class="question">
-<p>19. What is the top layer of a 3-layer flat roof called?</p>
-<label><input name="q19" type="radio" value="Base Sheet"/> Base Sheet</label><br/>
-<label><input name="q19" type="radio" value="Cap Sheet"/> Cap Sheet</label><br/>
-<label><input name="q19" type="radio" value="Midply"/> Midply</label><br/>
-<label><input name="q19" type="radio" value="Underlayment"/> Underlayment</label>
-</div>
-<div class="question">
-<p>20. What is the purpose of the base sheet?</p>
-<label><input name="q20" type="radio" value="Cosmetic finish"/> Cosmetic finish</label><br/>
-<label><input name="q20" type="radio" value="Anchor and vapor barrier"/> Anchor and vapor barrier</label><br/>
-<label><input name="q20" type="radio" value="Energy efficiency"/> Energy efficiency</label><br/>
-<label><input name="q20" type="radio" value="Reflect sunlight"/> Reflect sunlight</label>
-</div>
-<div class="question">
-<p>21. What material is typically used for flat roof underlayment?</p>
-<label><input name="q21" type="radio" value="PVC"/> PVC</label><br/>
-<label><input name="q21" type="radio" value="Asphalt"/> Asphalt</label><br/>
-<label><input name="q21" type="radio" value="Modified Bitumen"/> Modified Bitumen</label><br/>
-<label><input name="q21" type="radio" value="Fiberglass"/> Fiberglass</label>
-</div>
-<div class="question">
-<p>22. What does the midply layer bond to?</p>
-<label><input name="q22" type="radio" value="Cap sheet"/> Cap sheet</label><br/>
-<label><input name="q22" type="radio" value="Deck"/> Deck</label><br/>
-<label><input name="q22" type="radio" value="Base sheet"/> Base sheet</label><br/>
-<label><input name="q22" type="radio" value="Screws"/> Screws</label>
-</div>
-<div class="question">
-<p>23. Which option below is <strong>not</strong> a benefit of the 3-layer flat roof system?</p>
-<label><input name="q23" type="radio" value="Energy efficiency"/> Energy efficiency</label><br/>
-<label><input name="q23" type="radio" value="Leak resistance"/> Leak resistance</label><br/>
-<label><input name="q23" type="radio" value="Simplified single-layer design"/> Simplified single-layer design</label><br/>
-<label><input name="q23" type="radio" value="Durability"/> Durability</label>
-</div>
-<div class="question">
-<p>24. What is an optional feature of the cap sheet?</p>
-<label><input name="q24" type="radio" value="Self-repairing"/> Self-repairing</label><br/>
-<label><input name="q24" type="radio" value="Reflective coating"/> Reflective coating</label><br/>
-<label><input name="q24" type="radio" value="Built-in solar panels"/> Built-in solar panels</label><br/>
-<label><input name="q24" type="radio" value="Fiber insulation"/> Fiber insulation</label>
-</div>
-<button onclick="submitQuiz()">Submit Quiz</button>
-<p id="result"></p>
-<script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyLxw42HfEGx-6VLc1LCRuuwCKRIj6SdSTBsxtecgkCeyVDrjEWz1oFKwIdrQa5YG9iJA/exec";
 
-    function submitQuiz() {
-      const name = document.getElementById("name").value.trim();
-      if (!name) {
-        alert("Please enter your name.");
-        return;
-      }
+  <h2>Quiz – Page 4 of 4</h2>
 
-      // Save q19–q24 to localStorage
+  <form id="quizForm">
+    <div class="question">
+      <p>19. What is the standard Statewide labor warranty?</p>
+      <label><input type="radio" name="q19" value="2 years labor"> 2 years labor</label><br>
+      <label><input type="radio" name="q19" value="5 years labor + all product warranties"> 5 years labor + all product warranties</label><br>
+      <label><input type="radio" name="q19" value="Lifetime labor"> Lifetime labor</label>
+    </div>
+
+    <div class="question">
+      <p>20. What building codes must our products comply with?</p>
+      <label><input type="radio" name="q20" value="California Fire Code"> California Fire Code</label><br>
+      <label><input type="radio" name="q20" value="International Building Code"> International Building Code</label><br>
+      <label><input type="radio" name="q20" value="FL Wind Rating and HVHZ"> FL Wind Rating and HVHZ</label>
+    </div>
+
+    <div class="question">
+      <p>21. What material is typically used for flat roof underlayment?</p>
+      <label><input type="radio" name="q21" value="PVC"> PVC</label><br>
+      <label><input type="radio" name="q21" value="Asphalt"> Asphalt</label><br>
+      <label><input type="radio" name="q21" value="Modified Bitumen"> Modified Bitumen</label><br>
+      <label><input type="radio" name="q21" value="Fiberglass"> Fiberglass</label>
+    </div>
+
+    <div class="question">
+      <p>22. What does the midply layer bond to?</p>
+      <label><input type="radio" name="q22" value="Cap sheet"> Cap sheet</label><br>
+      <label><input type="radio" name="q22" value="Deck"> Deck</label><br>
+      <label><input type="radio" name="q22" value="Base sheet"> Base sheet</label><br>
+      <label><input type="radio" name="q22" value="Screws"> Screws</label>
+    </div>
+
+    <div class="question">
+      <p>23. Which option below is <strong>not</strong> a benefit of the 3-layer flat roof system?</p>
+      <label><input type="radio" name="q23" value="Energy efficiency"> Energy efficiency</label><br>
+      <label><input type="radio" name="q23" value="Leak resistance"> Leak resistance</label><br>
+      <label><input type="radio" name="q23" value="Simplified single-layer design"> Simplified single-layer design</label><br>
+      <label><input type="radio" name="q23" value="Durability"> Durability</label>
+    </div>
+
+    <div class="question">
+      <p>24. What is an optional feature of the cap sheet?</p>
+      <label><input type="radio" name="q24" value="Self-repairing"> Self-repairing</label><br>
+      <label><input type="radio" name="q24" value="Reflective coating"> Reflective coating</label><br>
+      <label><input type="radio" name="q24" value="Built-in solar panels"> Built-in solar panels</label><br>
+      <label><input type="radio" name="q24" value="Fiber insulation"> Fiber insulation</label>
+    </div>
+
+    <button type="submit">Submit Quiz</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("quizForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
       for (let i = 19; i <= 24; i++) {
-        const answer = document.querySelector(`input[name="q${i}"]:checked`);
-        localStorage.setItem(`q${i}`, answer ? answer.value : "No answer");
+        const answer = document.querySelector('input[name="q' + i + '"]:checked');
+        localStorage.setItem("q" + i, answer ? answer.value : "No answer");
       }
-
-      const answers = [];
-      let score = 0;
-
-      // Answer key (can be customized)
-      const correctAnswers = {
-        q1: "John Dyda",
-        q2: "2015",
-        q3: "Garage Doors",
-        q4: "High-rise condos",
-        q5: "Shingle",
-        q6: "Flat",
-        q7: "Aluminum",
-        q8: "Vinyl",
-        q9: "Double-pane",
-        q10: "Energy efficiency",
-        q11: "TAMKO",
-        q12: "Architectural shingles",
-        q13: "15–20 years",
-        q14: "Poor wind resistance",
-        q15: "They reflect sunlight",
-        q16: "They resist UV damage and heavy winds",
-        q17: "Noise during rain",
-        q18: "It has no visible fasteners",
-        q19: "Cap Sheet",
-        q20: "Anchor and vapor barrier",
-        q21: "Modified Bitumen",
-        q22: "Base sheet",
-        q23: "Simplified single-layer design",
-        q24: "Reflective coating"
-      };
-
-      for (let i = 1; i <= 24; i++) {
-        const qKey = `q${i}`;
-        const userAnswer = localStorage.getItem(qKey) || "No answer";
-        answers.push(userAnswer);
-        if (userAnswer === correctAnswers[qKey]) score++;
-      }
-
-      const payload = JSON.stringify({ name, score, answers });
-
-      fetch(scriptURL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain" },
-        body: payload
-      })
-        .then(res => res.text())
-        .then(text => {
-          document.getElementById("result").innerText = `✅ Submitted! You scored ${score}/24.`;
-          localStorage.clear();
-        })
-        .catch(err => {
-          console.error("Error submitting quiz:", err);
-          alert("Submission failed. Please try again.");
-        });
-    }
+      window.location.href = "quiz_results.html";
+    });
   </script>
+
 </body>
 </html>
