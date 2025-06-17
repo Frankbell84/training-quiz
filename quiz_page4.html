@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Quiz - Page 4</title>
+  <title>Quiz - Page 4 (Submit)</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,54 +11,73 @@
       margin: auto;
       background: #f4f4f4;
     }
+    h2 {
+      text-align: center;
+    }
     .question {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       padding: 15px;
-      background: white;
+      background: #fff;
       border-radius: 6px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
     }
     button {
-      padding: 10px 20px;
-      background: #007bff;
+      padding: 12px 24px;
+      background: #28a745;
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      display: block;
+      margin: 30px auto 0;
     }
     button:hover {
-      background: #0056b3;
+      background: #1e7e34;
     }
     #result {
       margin-top: 20px;
       font-weight: bold;
+      text-align: center;
       color: green;
+    }
+    input[type="text"] {
+      padding: 8px;
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
 
-  <h2>Quiz – Page 4 of 4</h2>
+  <h2>Training Quiz – Final Page</h2>
+
+  <label for="name">Your Name:</label>
+  <input type="text" id="name" placeholder="Enter your name" />
 
   <div class="question">
-    <p>19. What is the standard Statewide labor warranty?</p>
-    <label><input type="radio" name="q19" value="2 years labor"> 2 years labor</label><br>
-    <label><input type="radio" name="q19" value="5 years labor + all product warranties"> 5 years labor + all product warranties</label><br>
-    <label><input type="radio" name="q19" value="Lifetime labor"> Lifetime labor</label>
+    <p>19. What is the top layer of a 3-layer flat roof called?</p>
+    <label><input type="radio" name="q19" value="Base Sheet"> Base Sheet</label><br>
+    <label><input type="radio" name="q19" value="Cap Sheet"> Cap Sheet</label><br>
+    <label><input type="radio" name="q19" value="Midply"> Midply</label><br>
+    <label><input type="radio" name="q19" value="Underlayment"> Underlayment</label>
   </div>
 
   <div class="question">
-    <p>20. What building codes must our products comply with?</p>
-    <label><input type="radio" name="q20" value="California Fire Code"> California Fire Code</label><br>
-    <label><input type="radio" name="q20" value="International Building Code"> International Building Code</label><br>
-    <label><input type="radio" name="q20" value="FL Wind Rating and HVHZ"> FL Wind Rating and HVHZ</label>
+    <p>20. What is the purpose of the base sheet?</p>
+    <label><input type="radio" name="q20" value="Cosmetic finish"> Cosmetic finish</label><br>
+    <label><input type="radio" name="q20" value="Anchor and vapor barrier"> Anchor and vapor barrier</label><br>
+    <label><input type="radio" name="q20" value="Energy efficiency"> Energy efficiency</label><br>
+    <label><input type="radio" name="q20" value="Reflect sunlight"> Reflect sunlight</label>
   </div>
 
   <div class="question">
     <p>21. What material is typically used for flat roof underlayment?</p>
     <label><input type="radio" name="q21" value="PVC"> PVC</label><br>
     <label><input type="radio" name="q21" value="Asphalt"> Asphalt</label><br>
-    <label><input type="radio" name="q21" value="Modified Bitumen"> Modified Bitumen</label>
+    <label><input type="radio" name="q21" value="Modified Bitumen"> Modified Bitumen</label><br>
+    <label><input type="radio" name="q21" value="Fiberglass"> Fiberglass</label>
   </div>
 
   <div class="question">
@@ -70,7 +89,7 @@
   </div>
 
   <div class="question">
-    <p>23. Which option below is not a benefit of the 3-layer flat roof system?</p>
+    <p>23. Which option below is <strong>not</strong> a benefit of the 3-layer flat roof system?</p>
     <label><input type="radio" name="q23" value="Energy efficiency"> Energy efficiency</label><br>
     <label><input type="radio" name="q23" value="Leak resistance"> Leak resistance</label><br>
     <label><input type="radio" name="q23" value="Simplified single-layer design"> Simplified single-layer design</label><br>
@@ -89,49 +108,46 @@
   <p id="result"></p>
 
   <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyLxw42HfEGx-6VLc1LCRuuwCKRIj6SdSTBsxtecgkCeyVDrjEWz1oFKwIdrQa5YG9iJA/exec";
+
     function submitQuiz() {
-      const name = localStorage.getItem("quiz_name") || prompt("Please enter your name:");
+      const name = document.getElementById("name").value.trim();
       if (!name) {
-        alert("Name is required.");
+        alert("Please enter your name.");
         return;
       }
 
-      const answers = {};
-      for (let i = 1; i <= 24; i++) {
-        answers[`q${i}`] = localStorage.getItem(`q${i}`) || "No answer";
-      }
-
+      // Save q19–q24 to localStorage
       for (let i = 19; i <= 24; i++) {
-        const qName = `q${i}`;
-        const selected = document.querySelector(`input[name="${qName}"]:checked`);
-        if (selected) {
-          answers[qName] = selected.value;
-          localStorage.setItem(qName, selected.value);
-        }
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        localStorage.setItem(`q${i}`, answer ? answer.value : "No answer");
       }
 
+      const answers = [];
       let score = 0;
+
+      // Answer key (can be customized)
       const correctAnswers = {
         q1: "John Dyda",
         q2: "2015",
         q3: "Garage Doors",
-        q4: "Optimize workflows and profitability",
-        q5: "They must know our business model and product",
-        q6: "Script",
-        q7: "Frame the Call",
-        q8: "Set Clear Expectations",
-        q9: "All decision-makers must be present",
-        q10: "To see and measure the job",
-        q11: "The underlayment is SBS-based",
+        q4: "High-rise condos",
+        q5: "Shingle",
+        q6: "Flat",
+        q7: "Aluminum",
+        q8: "Vinyl",
+        q9: "Double-pane",
+        q10: "Energy efficiency",
+        q11: "TAMKO",
         q12: "Architectural shingles",
-        q13: "The lead is inside sales rep’s name",
-        q14: "Check if it's duplicate and disposition",
-        q15: "Apologize and reset expectations",
-        q16: "Realistic and matched to service area",
-        q17: "Yes, if all products are available",
-        q18: "Skip logic",
-        q19: "5 years labor + all product warranties",
-        q20: "FL Wind Rating and HVHZ",
+        q13: "15–20 years",
+        q14: "Poor wind resistance",
+        q15: "They reflect sunlight",
+        q16: "They resist UV damage and heavy winds",
+        q17: "Noise during rain",
+        q18: "It has no visible fasteners",
+        q19: "Cap Sheet",
+        q20: "Anchor and vapor barrier",
         q21: "Modified Bitumen",
         q22: "Base sheet",
         q23: "Simplified single-layer design",
@@ -139,10 +155,12 @@
       };
 
       for (let i = 1; i <= 24; i++) {
-        if (answers[`q${i}`] === correctAnswers[`q${i}`]) score++;
+        const qKey = `q${i}`;
+        const userAnswer = localStorage.getItem(qKey) || "No answer";
+        answers.push(userAnswer);
+        if (userAnswer === correctAnswers[qKey]) score++;
       }
 
-      const scriptURL = "https://script.google.com/macros/s/AKfycbyLxw42HfEGx-6VLc1LCRuuwCKRIj6SdSTBsxtecgkCeyVDrjEWz1oFKwIdrQa5YG9iJA/exec";
       const payload = JSON.stringify({ name, score, answers });
 
       fetch(scriptURL, {
@@ -150,15 +168,17 @@
         headers: { "Content-Type": "text/plain" },
         body: payload
       })
-      .then(res => res.text())
-      .then(text => {
-        document.getElementById("result").innerText = `✅ Submitted! You scored ${score}/24.`;
-      })
-      .catch(err => {
-        console.error("Error submitting quiz:", err);
-        alert("Submission failed. Please try again.");
-      });
+        .then(res => res.text())
+        .then(text => {
+          document.getElementById("result").innerText = `✅ Submitted! You scored ${score}/24.`;
+          localStorage.clear();
+        })
+        .catch(err => {
+          console.error("Error submitting quiz:", err);
+          alert("Submission failed. Please try again.");
+        });
     }
   </script>
+
 </body>
 </html>
